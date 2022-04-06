@@ -1,5 +1,3 @@
-import { objectIsEmpty } from '@feng3d/polyfill';
-
 /**
  * 键盘按键字典 （补充常量，a-z以及鼠标按键不必再次列出）
  * 例如 boardKeyDic[17] = "ctrl";
@@ -22,7 +20,7 @@ export class KeyBoard
     {
         let key = boardKeyDic[code];
 
-        if (objectIsEmpty(key) && code >= 65 && code <= 90)
+        if ((key === undefined || key === null) && code >= 65 && code <= 90)
         {
             key = String.fromCharCode(code).toLocaleLowerCase();
         }
