@@ -15,7 +15,7 @@
     },
     "references": [
         {
-            "path": "../event/tsconfig.json"
+            "path": "../event"
         },
     ],
     "files": [
