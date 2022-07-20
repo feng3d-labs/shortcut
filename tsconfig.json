@@ -13,12 +13,10 @@
         ],
         "outFile": "dist/index.js"
     },
-    "references": [
-        {
-            "path": "../event"
-        },
-    ],
     "files": [
+        //
+        "../event/index.d.ts",
+        //
         "src/EventProxy.ts",
         "src/WindowEventProxy.ts",
         "src/Keyboard.ts",
