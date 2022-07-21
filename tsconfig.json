@@ -1,28 +1,25 @@
 {
     "compilerOptions": {
         "target": "ES5",
+        "module": "CommonJS",
         "noImplicitAny": false,
         "sourceMap": true,
         "declarationMap": true,
         "declaration": true,
         "experimentalDecorators": true,
-        "composite": true,
         "lib": [
             "ES2015",
-            "DOM"
+            "DOM",
         ],
-        "outFile": "dist/index.js"
+        "outDir": "lib"
     },
-    "files": [
-        //
-        "../event/index.d.ts",
-        //
-        "src/EventProxy.ts",
-        "src/WindowEventProxy.ts",
-        "src/Keyboard.ts",
-        "src/handle/KeyCapture.ts",
-        "src/handle/KeyState.ts",
-        "src/handle/ShortCutCapture.ts",
-        "src/ShortCut.ts",
-    ]
+    "include": [
+        "src/**/*.ts"
+    ],
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
 }
