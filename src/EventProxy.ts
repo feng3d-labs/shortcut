@@ -1,4 +1,4 @@
-import { IEvent as Event, EventEmitter } from '@feng3d/event';
+import { EventEmitter, IEvent } from '@feng3d/event';
 
 /**
  * 代理 EventTarget, 处理js事件中this关键字问题
@@ -62,7 +62,7 @@ export class EventProxy<T = any> extends EventEmitter<T>
      * @param thisObject listener函数作用域
      * @param priority 事件侦听器的优先级。数字越大，优先级越高。默认优先级为 0。
      */
-    once<K extends keyof T>(type: K, listener: (event: Event<T[K]>) => void, thisObject?: any, priority?: number)
+    once<K extends keyof T>(type: K, listener: (event: IEvent<T[K]>) => void, thisObject?: any, priority?: number)
     {
         this.on(type as any, listener, thisObject, priority, true);
 
@@ -75,7 +75,7 @@ export class EventProxy<T = any> extends EventEmitter<T>
      * @param listener 处理事件的侦听器函数。
      * @param priority 事件侦听器的优先级。数字越大，优先级越高。默认优先级为 0。
      */
-    on<K extends keyof T & string>(type: K, listener: (event: Event<T[K]>) => void, thisObject?: any, priority = 0, once = false): this
+    on<K extends keyof T & string>(type: K, listener: (event: IEvent<T[K]>) => void, thisObject?: any, priority = 0, once = false): this
     {
         super.on(type, listener, thisObject, priority, once);
         if (this.listentypes.indexOf(type) === -1)
@@ -93,7 +93,7 @@ export class EventProxy<T = any> extends EventEmitter<T>
      * @param type 事件的类型。
      * @param listener 要删除的侦听器对象。
      */
-    off<K extends keyof T & string>(type?: K, listener?: (event: Event<T[K]>) => void, thisObject?: any): this
+    off<K extends keyof T & string>(type?: K, listener?: (event: IEvent<T[K]>) => void, thisObject?: any): this
     {
         super.off(type, listener, thisObject);
         if (!type)

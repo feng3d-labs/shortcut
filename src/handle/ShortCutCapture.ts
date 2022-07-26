@@ -1,4 +1,4 @@
-import { IEvent as Event } from '@feng3d/event';
+import { IEvent } from '@feng3d/event';
 import { ShortCut } from '../ShortCut';
 import { KeyState } from './KeyState';
 
@@ -96,7 +96,7 @@ export class ShortCutCapture
     /**
      * 处理捕获事件
      */
-    private onCapture(event: Event<any>): void
+    private onCapture(event: IEvent<any>): void
     {
         const inWhen = this.checkActivityStates(this._states);
         const pressKeys = this.checkActivityKeys(this._keys);
@@ -111,7 +111,7 @@ export class ShortCutCapture
     /**
      * 派发命令
      */
-    private dispatchCommands(commands: string[], data: Event<any>): void
+    private dispatchCommands(commands: string[], data: IEvent<any>): void
     {
         for (let i = 0; i < commands.length; i++)
         {

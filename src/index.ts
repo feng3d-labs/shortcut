@@ -4,4 +4,3 @@ export * from './handle/ShortCutCapture';
 export * from './Keyboard';
 export * from './ShortCut';
 export * from './WindowEventProxy';
-

@@ -1,6 +1,6 @@
-import { IEvent as Event } from '@feng3d/event';
+import { IEvent } from '@feng3d/event';
 import { KeyBoard } from '../Keyboard';
-import type { ShortCut } from '../ShortCut';
+import { ShortCut } from '../ShortCut';
 import { windowEventProxy } from '../WindowEventProxy';
 import { KeyState } from './KeyState';
 
@@ -57,7 +57,7 @@ export class KeyCapture
     /**
      * 鼠标事件
      */
-    private onMouseOnce(event: Event<MouseEvent>): void
+    private onMouseOnce(event: IEvent<MouseEvent>): void
     {
         if (!this.shortcut.enable)
         {
@@ -72,7 +72,7 @@ export class KeyCapture
     /**
      * 鼠标事件
      */
-    private onMousewheel(event: Event<WheelEvent>): void
+    private onMousewheel(event: IEvent<WheelEvent>): void
     {
         if (!this.shortcut.enable)
         {
@@ -87,7 +87,7 @@ export class KeyCapture
     /**
      * 键盘按下事件
      */
-    private onKeydown(event: Event<KeyboardEvent>): void
+    private onKeydown(event: IEvent<KeyboardEvent>): void
     {
         if (!this.shortcut.enable)
         {
@@ -110,7 +110,7 @@ export class KeyCapture
     /**
      * 键盘弹起事件
      */
-    private onKeyup(event: Event<KeyboardEvent>): void
+    private onKeyup(event: IEvent<KeyboardEvent>): void
     {
         if (!this.shortcut.enable)
         {
@@ -130,4 +130,3 @@ export class KeyCapture
         }
     }
 }
-
